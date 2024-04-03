@@ -24,6 +24,7 @@ mongoose.connect(configuration.mongoURI)
  app.use(errorHandler.notFound)
  app.use(errorHandler.serverError)
 
+    console.log('BD connected!');
 
     app.listen(configuration.port, ()=> {
         console.log("listening on port "+configuration.port);
