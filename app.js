@@ -14,16 +14,17 @@ app.use(express.json());
 app.use(cors());
 app.use(express.json());
 
+
+//routes
+ 
+app.use("/api/contact",contactRouter);
+app.use(errorHandler.notFound)
+app.use(errorHandler.serverError)
+
 //db connection
 
 mongoose.connect(configuration.mongoURI)
 .then(() => {
- //routes
- 
- app.use("/api/contact",contactRouter);
- app.use(errorHandler.notFound)
- app.use(errorHandler.serverError)
-
     console.log('BD connected!');
 
     app.listen(configuration.port, ()=> {
